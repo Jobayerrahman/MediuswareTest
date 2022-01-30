@@ -1,0 +1,72 @@
+{% extends 'backend/base.html' %}
+
+{% block title %} Product List {% endblock %}
+
+{% block content %}
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Update Product</h1>
+</div>
+
+<div class="card">
+    <form action="" method="POST" class="card-header">
+        {% csrf_token %}
+        <div class="form-row justify-content-between">
+            <div class="col-md-6">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Product Title</span>
+                </div>
+                <input type="text" name="product_title" class="form-control" value="{{information.product.title}}">
+            </div>
+            <div class="col-md-6">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Product Sku</span>
+                </div>
+                <input type="text" name="product_sku" class="form-control" value="{{information.product.sku}}">
+            </div>
+            <div class="col-md-12">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Product Description</span>
+                </div>
+                <textarea class="form-control" name="product_desc" rows="3">{{information.product.description}}</textarea>
+            </div>
+            <div class="col-md-12">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Variant Color</span>
+                </div>
+                <input type="text" name="varitant_one" class="form-control" value="{{information.product_variant_one.variant_title}}">
+            </div> 
+            <div class="col-md-12">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Variant Size</span>
+                </div>
+                <input type="text" name="varitant_two" class="form-control" value="{{information.product_variant_two.variant_title}}">
+            </div>
+            <div class="col-md-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Price Range</span>
+                    </div>
+                    <input type="text" name="price_from" aria-label="First name" placeholder="From"
+                           class="form-control" value="{{information.price}}">
+                    <input type="text" name="price_to" aria-label="Last name" placeholder="To" class="form-control" value="{{information.min_price}}">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Stock Range</span>
+                    </div>
+                    <input type="text" name="stock_from" aria-label="First name" value="{{information.stock}}"
+                           class="form-control">
+                    <input type="text" name="stock_to" aria-label="Last name" value="{{information.min_stock}}" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

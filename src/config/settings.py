@@ -81,7 +81,7 @@ DATABASES = {
         'USER': os.getenv('DB_USER', 'root'),
         'PASSWORD': os.getenv('DB_PASSWORD', ''),
         'HOST': os.getenv('DB_HOST', '127.0.0.1'),
-        'PORT': os.getenv('DB_PORT', '3306')
+        'PORT': os.getenv('DB_PORT', '3600')
     }
 }
 
@@ -121,10 +121,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'assets'
+    BASE_DIR / 'templates/assets'
 ]
+STATIC_ROOT = BASE_DIR / 'assets'
 MEDIA_URL = '/media/'
-
+MEDIA_ROOT = BASE_DIR / 'media'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
